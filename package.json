@@ -9,15 +9,16 @@
   "scripts": {
     "commit": "git-cz",
     "test": "jest",
-    "semantic-release":
-      "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "devDependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
     "flow-bin": "^0.57.2",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^21.2.1",
+    "qs": "^6.5.1",
     "rimraf": "^2.6.2",
     "semantic-release": "^8.0.3",
     "webpack": "^3.7.1"
@@ -29,6 +30,8 @@
     }
   },
   "jest": {
-    "watchPathIgnorePatterns": ["<rootDir>/dist/"]
+    "watchPathIgnorePatterns": [
+      "<rootDir>/dist/"
+    ]
   }
 }

@@ -51,9 +51,36 @@ class HtmlWebpackPolyfillIOPlugin {
     }
   }
 
-  buildSrc() {}
+  buildSrc() {
+    const base = 'https://cdn.polyfill.io/v2/polyfill.'
+    const postfix = this.options.minify ? 'min.js' : 'js'
 
-  buildAttributes() {}
+    const options = []
+
+    if (this.options.features)
+      options.push(['features', this.options.features].join('='))
+    if (this.options.excludes)
+      options.push(['excludes', this.options.excludes].join('='))
+    if (this.options.flags)
+      options.push(['flags', this.options.flags].join('='))
+    if (this.options.callback)
+      options.push(['callback', this.options.callback].join('='))
+    if (this.options.unknown)
+      options.push(['unknown', this.options.unknown].join('='))
+    if (this.options.rum !== undefined)
+      options.push(['rum', +this.options.rum].join('='))
+
+    return [`${base}${postfix}`, options.join('&')].filter(Boolean).join('?')
+  }
+
+  buildAttributes() {
+    const attrs = {}
+
+    attrs.src = this.buildSrc()
+    if (this.options.callback) attrs.async = true
+
+    return attrs
+  }
 
   buildTag() {
     return {
