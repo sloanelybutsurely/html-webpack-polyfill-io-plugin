@@ -1,0 +1,13 @@
+{
+  "name": "html-webpack-polyfill-io-plugin",
+  "version": "1.0.0",
+  "description": "Add polyfill.io to your HtmlWebpackPlugin generated HTML",
+  "main": "index.js",
+  "repository": "zperrault/html-ewbpack-polyfill-io-plugin",
+  "author": "Zach Perrault <zach.perrault@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.7.1"
+  }
+}
