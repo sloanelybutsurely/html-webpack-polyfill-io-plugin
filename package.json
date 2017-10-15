@@ -6,8 +6,14 @@
   "repository": "zperrault/html-ewbpack-polyfill-io-plugin",
   "author": "Zach Perrault <zach.perrault@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "html-webpack-plugin": "^2.30.1",
+    "jest": "^21.2.1",
+    "rimraf": "^2.6.2",
     "webpack": "^3.7.1"
-  }
+  },
+  "dependencies": {}
 }
