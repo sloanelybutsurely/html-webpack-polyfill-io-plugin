@@ -1,6 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HtmlWebpackPolyfillIOPlugin adds the polyfill.io script to the html page 1`] = `
+exports[`HtmlWebpackPolyfillIOPlugin process.env.NODE_ENV !== "production" adds the non-minified polyfill.io script to the html page 1`] = `
+"<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=\\"UTF-8\\">
+    <title>Webpack App</title>
+  <script src=\\"https://cdn.polyfill.io/v2/polyfill.js\\"></script></head>
+  <body>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script></body>
+</html>"
+`;
+
+exports[`HtmlWebpackPolyfillIOPlugin process.env.NODE_ENV === "production" adds the minified polyfill.io script to the html page 1`] = `
 "<!DOCTYPE html>
 <html>
   <head>
