@@ -1,25 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HtmlWebpackPolyfillIOPlugin process.env.NODE_ENV !== "production" adds the non-minified polyfill.io script to the html page 1`] = `
-"<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset=\\"UTF-8\\">
-    <title>Webpack App</title>
-  <script src=\\"https://cdn.polyfill.io/v2/polyfill.js\\"></script></head>
-  <body>
-  <script type=\\"text/javascript\\" src=\\"main.js\\"></script></body>
-</html>"
-`;
+exports[`HtmlWebpackPolyfillIOPlugin configuration callback invalid callback name throws an error describing the misconfiguration 1`] = `"option 'callback' must match regular expression \\"^[w.]+$\\". Received: 'invalid callback name'"`;
 
-exports[`HtmlWebpackPolyfillIOPlugin process.env.NODE_ENV === "production" adds the minified polyfill.io script to the html page 1`] = `
-"<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset=\\"UTF-8\\">
-    <title>Webpack App</title>
-  <script src=\\"https://cdn.polyfill.io/v2/polyfill.min.js\\"></script></head>
-  <body>
-  <script type=\\"text/javascript\\" src=\\"main.js\\"></script></body>
-</html>"
-`;
+exports[`HtmlWebpackPolyfillIOPlugin configuration flags other throws an error describing the misconfiguration 1`] = `"option 'flags' must be one of ['always', 'gated']. Received: 'other'"`;
+
+exports[`HtmlWebpackPolyfillIOPlugin configuration unknown other throws an error describing the misconfiguration 1`] = `"option 'unknown' must be one of ['ignore', 'polyfill']. Received 'other'"`;
