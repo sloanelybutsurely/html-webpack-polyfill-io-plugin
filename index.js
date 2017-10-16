@@ -1,54 +1,63 @@
 'use strict'
 
+const isDefined = x => x !== undefined
+const stringOrArray = x => (Array.isArray(x) ? x.join(',') : x)
+const isInArray = (name, allowed, value) => {
+  if (allowed.indexOf(value) === -1) {
+    throw new TypeError(
+      `option '${name}' must be one of [${allowed
+        .map(s => `'${s}'`)
+        .join(', ')}]. Received: '${value}'`
+    )
+  }
+  return value
+}
+const matchesRegExp = (name, regexp, value) => {
+  if (!regexp.test(value)) {
+    throw new TypeError(
+      `option '${name}' must match regular expression '${regexp}'. Received: '${value}'`
+    )
+  }
+  return value
+}
+
 class HtmlWebpackPolyfillIOPlugin {
-  constructor(options = {}) {
+  constructor(options) {
+    options = options || {}
     this.options = {}
 
-    this.options.minify =
-      options.minify !== undefined
-        ? options.minify
-        : process.env.NODE_ENV === 'production' ? true : false
+    this.options.minify = isDefined(options.minify)
+      ? options.minify
+      : process.env.NODE_ENV === 'production' ? true : false
 
-    if (options.features)
-      this.options.features = Array.isArray(options.features)
-        ? options.features.join(',')
-        : options.features
+    if (isDefined(options.features))
+      this.options.features = stringOrArray(options.features)
 
-    if (options.excludes)
-      this.options.excludes = Array.isArray(options.excludes)
-        ? options.excludes.join(',')
-        : options.excludes
+    if (isDefined(options.excludes))
+      this.options.excludes = stringOrArray(options.excludes)
 
-    if (options.flags) {
-      if (!['always', 'gated'].includes(options.flags))
-        throw new TypeError(
-          `option 'flags' must be one of ['always', 'gated']. Received: '${options.flags}'`
-        )
+    if (isDefined(options.flags))
+      this.options.flags = isInArray(
+        'flags',
+        ['always', 'gated'],
+        options.flags
+      )
 
-      this.options.flags = options.flags
-    }
+    if (isDefined(options.callback))
+      this.options.callback = matchesRegExp(
+        'callback',
+        /^[\w\.]+$/,
+        options.callback
+      )
 
-    if (options.callback) {
-      if (!/^[\w\.]+$/.test(options.callback))
-        throw new TypeError(
-          `option 'callback' must match regular expression "^[\w\.]+$". Received: '${options.callback}'`
-        )
+    if (isDefined(options.unknown))
+      this.options.unknown = isInArray(
+        'unknown',
+        ['ignore', 'polyfill'],
+        options.unknown
+      )
 
-      this.options.callback = options.callback
-    }
-
-    if (options.unknown) {
-      if (!['ignore', 'polyfill'].includes(options.unknown))
-        throw new TypeError(
-          `option 'unknown' must be one of ['ignore', 'polyfill']. Received '${options.unknown}'`
-        )
-
-      this.options.unknown = options.unknown
-    }
-
-    if (options.rum !== undefined) {
-      this.options.rum = Boolean(options.rum)
-    }
+    if (isDefined(options.rum)) this.options.rum = Boolean(options.rum)
   }
 
   buildSrc() {
