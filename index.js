@@ -73,7 +73,7 @@ class HtmlWebpackPolyfillIOPlugin {
     return [`${base}${postfix}`, options.join('&')].filter(Boolean).join('?')
   }
 
-  buildAttributes() {
+  buildScriptAttrs() {
     const attrs = {}
 
     attrs.src = this.buildSrc()
@@ -82,19 +82,36 @@ class HtmlWebpackPolyfillIOPlugin {
     return attrs
   }
 
-  buildTag() {
+  buildScriptTag() {
     return {
       tagName: 'script',
-      close: true,
-      attributes: this.buildAttributes(),
+      closeTag: true,
+      attributes: this.buildScriptAttrs(),
+    }
+  }
+
+  buildHintTag() {
+    return {
+      tagName: 'link',
+      attributes: {
+        href: this.buildSrc(),
+        type: 'preload',
+        as: 'script',
+      },
     }
   }
 
   apply(compiler) {
     compiler.plugin('compilation', compilation => {
       compilation.plugin('html-webpack-plugin-alter-asset-tags', (data, cb) => {
-        const tag = this.buildTag()
-        data.head.push(tag)
+        const script = this.buildScriptTag()
+        if (this.options.callback) {
+          const hint = this.buildHintTag()
+          data.head.push(hint)
+          data.body.unshift(script)
+        } else {
+          data.head.push(script)
+        }
         cb(null, data)
       })
     })
