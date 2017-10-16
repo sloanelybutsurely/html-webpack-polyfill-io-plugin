@@ -352,7 +352,7 @@ describe('HtmlWebpackPolyfillIOPlugin', () => {
       })
     })
   })
-  describe('buildAttributes', () => {
+  describe('buildScriptAttrs', () => {
     const plugin = new HtmlWebpackPolyfillIOPlugin()
     describe('src', () => {
       beforeEach(() => {
@@ -361,7 +361,7 @@ describe('HtmlWebpackPolyfillIOPlugin', () => {
           .mockReturnValueOnce('https://cdn.polyfill.io/v2/polyfill.min.js')
       })
       it('calls buildSrc and uses the returned value', () => {
-        const attrs = plugin.buildAttributes()
+        const attrs = plugin.buildScriptAttrs()
         expect(plugin.buildSrc).toHaveBeenCalledTimes(1)
         expect(attrs.src).toBe('https://cdn.polyfill.io/v2/polyfill.min.js')
       })
@@ -369,7 +369,7 @@ describe('HtmlWebpackPolyfillIOPlugin', () => {
     describe('async', () => {
       describe('callback not set', () => {
         it('is not defined', () => {
-          expect(plugin.buildAttributes().async).not.toBeDefined()
+          expect(plugin.buildScriptAttrs().async).not.toBeDefined()
         })
       })
       describe('callback set', () => {
@@ -380,32 +380,32 @@ describe('HtmlWebpackPolyfillIOPlugin', () => {
           delete plugin.options.callback
         })
         it('is true', () => {
-          expect(plugin.buildAttributes().async).toBe(true)
+          expect(plugin.buildScriptAttrs().async).toBe(true)
         })
       })
     })
   })
-  describe('buildTag', () => {
+  describe('buildScriptTag', () => {
     const plugin = new HtmlWebpackPolyfillIOPlugin()
     describe('tagName', () => {
       it("is 'script'", () => {
-        expect(plugin.buildTag().tagName).toBe('script')
+        expect(plugin.buildScriptTag().tagName).toBe('script')
       })
     })
-    describe('close', () => {
+    describe('closeTag', () => {
       it('is true', () => {
-        expect(plugin.buildTag().close).toBe(true)
+        expect(plugin.buildScriptTag().closeTag).toBe(true)
       })
     })
     describe('attributes', () => {
       const attributes = { src: 'https://cdn.polyfill.io/v2/polyfill.min.js' }
       beforeEach(() => {
-        jest.spyOn(plugin, 'buildAttributes').mockReturnValueOnce(attributes)
+        jest.spyOn(plugin, 'buildScriptAttrs').mockReturnValueOnce(attributes)
       })
-      it("calls 'buildAttributes' and uses the returned value", () => {
-        const tag = plugin.buildTag()
+      it("calls 'buildScriptAttrs' and uses the returned value", () => {
+        const tag = plugin.buildScriptTag()
         expect(tag.attributes).toBe(attributes)
-        expect(plugin.buildAttributes).toHaveBeenCalledTimes(1)
+        expect(plugin.buildScriptAttrs).toHaveBeenCalledTimes(1)
       })
     })
   })
