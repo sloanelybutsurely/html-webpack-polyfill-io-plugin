@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HtmlWebpackPolyfillIOPlugin simple adds the polyfill script to the head 1`] = `
+"<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=\\"UTF-8\\">
+    <title>Webpack App</title>
+  <script src=\\"https://cdn.polyfill.io/v2/polyfill.js\\"></script></head>
+  <body>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script></body>
+</html>"
+`;
+
+exports[`HtmlWebpackPolyfillIOPlugin with callback adds the polyfill script to the body and a resource hint to the head 1`] = `
+"<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=\\"UTF-8\\">
+    <title>Webpack App</title>
+  <link href=\\"https://cdn.polyfill.io/v2/polyfill.min.js?features=default-3.6&flags=gated&callback=ready&rum=1\\" type=\\"preload\\" as=\\"script\\"></head>
+  <body>
+  <script src=\\"https://cdn.polyfill.io/v2/polyfill.min.js?features=default-3.6&flags=gated&callback=ready&rum=1\\" async></script><script type=\\"text/javascript\\" src=\\"main.js\\"></script></body>
+</html>"
+`;
+
+exports[`HtmlWebpackPolyfillIOPlugin with configuration adds the polyfill script to the head with the configuration 1`] = `
+"<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=\\"UTF-8\\">
+    <title>Webpack App</title>
+  <script src=\\"https://cdn.polyfill.io/v2/polyfill.min.js?features=default-3.6&flags=gated&rum=1\\"></script></head>
+  <body>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script></body>
+</html>"
+`;
