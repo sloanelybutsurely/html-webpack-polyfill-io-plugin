@@ -20,7 +20,7 @@
     "jest": "^21.2.1",
     "qs": "^6.5.1",
     "rimraf": "^2.6.2",
-    "semantic-release": "^8.0.3",
+    "semantic-release": "^8.2.0",
     "webpack": "^3.7.1"
   },
   "dependencies": {},
