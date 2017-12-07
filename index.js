@@ -58,6 +58,10 @@ class HtmlWebpackPolyfillIOPlugin {
       )
 
     if (isDefined(options.rum)) this.options.rum = Boolean(options.rum)
+
+    this.options.useBody = (isDefined(options.useBody))
+      ? Boolean(options.useBody)
+      : false
   }
 
   buildSrc() {
@@ -117,6 +121,9 @@ class HtmlWebpackPolyfillIOPlugin {
         if (this.options.callback) {
           const hint = this.buildHintTag()
           data.head.push(hint)
+        }
+
+        if (this.options.useBody || this.options.callback) {
           data.body.unshift(script)
         } else {
           data.head.push(script)

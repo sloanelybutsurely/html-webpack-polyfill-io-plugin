@@ -185,6 +185,27 @@ describe('HtmlWebpackPolyfillIOPlugin', () => {
         })
       })
     })
+    describe('useBody', () => {
+      describe('true', () => {
+        it('sets useBody true', () => {
+          const options = new HtmlWebpackPolyfillIOPlugin({ useBody: true }).options
+          expect(options.useBody).toBe(true)
+        })
+      })
+      describe('false', () => {
+        it('sets useBody false', () => {
+          const options = new HtmlWebpackPolyfillIOPlugin({ useBody: false })
+            .options
+          expect(options.useBody).toBe(false)
+        })
+      })
+      describe('default', () => {
+        it('should be false', () => {
+          const options = new HtmlWebpackPolyfillIOPlugin().options
+          expect(options.useBody).toBe(false)
+        })
+      })
+    })
   })
 
   describe('buildSrc', () => {

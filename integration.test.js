@@ -58,6 +58,19 @@ describe('HtmlWebpackPolyfillIOPlugin', () => {
       )
     })
   })
+  describe('with useBody', () => {
+   it('adds the polyfill script to the body', done => {
+      compile(
+        {
+          useBody: true,
+        },
+        html => {
+          expect(html).toMatchSnapshot()
+          done()
+        }
+      )
+    })
+  })
   describe('with callback', () => {
     it('adds the polyfill script to the body and a resource hint to the head', done => {
       compile(

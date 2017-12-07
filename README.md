@@ -76,6 +76,12 @@ What to do when the user agent is not recognized.
 
 Explicitly enable or diable [real user monitoring](https://en.wikipedia.org/wiki/Real_user_monitoring)
 
+### (`useBody`: `boolean`)
+
+default: false
+
+Place the polyfill script in the body rather than the head.
+
 ## Example
 
 ```js

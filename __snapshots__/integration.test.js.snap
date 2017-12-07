@@ -35,3 +35,15 @@ exports[`HtmlWebpackPolyfillIOPlugin with configuration adds the polyfill script
   <script type=\\"text/javascript\\" src=\\"main.js\\"></script></body>
 </html>"
 `;
+
+exports[`HtmlWebpackPolyfillIOPlugin with useBody adds the polyfill script to the body 1`] = `
+"<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=\\"UTF-8\\">
+    <title>Webpack App</title>
+  </head>
+  <body>
+  <script src=\\"https://cdn.polyfill.io/v2/polyfill.js\\"></script><script type=\\"text/javascript\\" src=\\"main.js\\"></script></body>
+</html>"
+`;
