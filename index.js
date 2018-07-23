@@ -121,7 +121,10 @@ class HtmlWebpackPolyfillIOPlugin {
         } else {
           data.head.push(script)
         }
-        cb(null, data)
+
+        if (cb && typeof cb === 'function') {
+         cb(null, data)
+        }
       })
     })
   }
