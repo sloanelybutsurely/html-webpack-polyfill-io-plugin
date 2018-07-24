@@ -1,6 +1,6 @@
 {
-  "name": "html-webpack-polyfill-io-plugin",
-  "version": "0.0.0-development",
+  "name": "html-webpack-polyfill-io-plugin2",
+  "version": "0.0.1",
   "description": "Add polyfill.io to your HtmlWebpackPlugin generated HTML",
   "main": "index.js",
   "repository": "git@github.com:zperrault/html-webpack-polyfill-io-plugin.git",
