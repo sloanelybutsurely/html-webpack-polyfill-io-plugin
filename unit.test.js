@@ -211,7 +211,7 @@ describe('HtmlWebpackPolyfillIOPlugin', () => {
   describe('buildSrc', () => {
     const plugin = new HtmlWebpackPolyfillIOPlugin()
     it('builds a polyfill url', () => {
-      expect(plugin.buildSrc()).toBe('https://cdn.polyfill.io/v2/polyfill.js')
+      expect(plugin.buildSrc()).toBe('https://cdn.polyfill.io/v3/polyfill.js')
     })
 
     describe('minify', () => {
@@ -219,7 +219,7 @@ describe('HtmlWebpackPolyfillIOPlugin', () => {
         beforeAll(() => (plugin.options.minify = true))
         it('targets the minified script', () => {
           expect(plugin.buildSrc()).toBe(
-            'https://cdn.polyfill.io/v2/polyfill.min.js'
+            'https://cdn.polyfill.io/v3/polyfill.min.js'
           )
         })
       })
@@ -227,7 +227,7 @@ describe('HtmlWebpackPolyfillIOPlugin', () => {
         beforeAll(() => (plugin.options.minify = false))
         it('targets the non-minified script', () => {
           expect(plugin.buildSrc()).toBe(
-            'https://cdn.polyfill.io/v2/polyfill.js'
+            'https://cdn.polyfill.io/v3/polyfill.js'
           )
         })
       })
@@ -377,12 +377,12 @@ describe('HtmlWebpackPolyfillIOPlugin', () => {
       beforeEach(() => {
         jest
           .spyOn(plugin, 'buildSrc')
-          .mockReturnValueOnce('https://cdn.polyfill.io/v2/polyfill.min.js')
+          .mockReturnValueOnce('https://cdn.polyfill.io/v3/polyfill.min.js')
       })
       it('calls buildSrc and uses the returned value', () => {
         const attrs = plugin.buildScriptAttrs()
         expect(plugin.buildSrc).toHaveBeenCalledTimes(1)
-        expect(attrs.src).toBe('https://cdn.polyfill.io/v2/polyfill.min.js')
+        expect(attrs.src).toBe('https://cdn.polyfill.io/v3/polyfill.min.js')
       })
     })
     describe('async', () => {
@@ -417,7 +417,7 @@ describe('HtmlWebpackPolyfillIOPlugin', () => {
       })
     })
     describe('attributes', () => {
-      const attributes = { src: 'https://cdn.polyfill.io/v2/polyfill.min.js' }
+      const attributes = { src: 'https://cdn.polyfill.io/v3/polyfill.min.js' }
       beforeEach(() => {
         jest.spyOn(plugin, 'buildScriptAttrs').mockReturnValueOnce(attributes)
       })

@@ -6,7 +6,7 @@ exports[`HtmlWebpackPolyfillIOPlugin simple adds the polyfill script to the head
   <head>
     <meta charset=\\"UTF-8\\">
     <title>Webpack App</title>
-  <script src=\\"https://cdn.polyfill.io/v2/polyfill.js\\"></script></head>
+  <script src=\\"https://cdn.polyfill.io/v3/polyfill.js\\"></script></head>
   <body>
   <script type=\\"text/javascript\\" src=\\"main.js\\"></script></body>
 </html>"
@@ -18,9 +18,9 @@ exports[`HtmlWebpackPolyfillIOPlugin with callback adds the polyfill script to t
   <head>
     <meta charset=\\"UTF-8\\">
     <title>Webpack App</title>
-  <link href=\\"https://cdn.polyfill.io/v2/polyfill.min.js?features=default-3.6&flags=gated&callback=ready&rum=1\\" type=\\"preload\\" as=\\"script\\"></head>
+  <link href=\\"https://cdn.polyfill.io/v3/polyfill.min.js?features=default-3.6&flags=gated&callback=ready&rum=1\\" type=\\"preload\\" as=\\"script\\"></head>
   <body>
-  <script src=\\"https://cdn.polyfill.io/v2/polyfill.min.js?features=default-3.6&flags=gated&callback=ready&rum=1\\" async></script><script type=\\"text/javascript\\" src=\\"main.js\\"></script></body>
+  <script src=\\"https://cdn.polyfill.io/v3/polyfill.min.js?features=default-3.6&flags=gated&callback=ready&rum=1\\" async></script><script type=\\"text/javascript\\" src=\\"main.js\\"></script></body>
 </html>"
 `;
 
@@ -30,7 +30,7 @@ exports[`HtmlWebpackPolyfillIOPlugin with configuration adds the polyfill script
   <head>
     <meta charset=\\"UTF-8\\">
     <title>Webpack App</title>
-  <script src=\\"https://cdn.polyfill.io/v2/polyfill.min.js?features=default-3.6&flags=gated&rum=1\\"></script></head>
+  <script src=\\"https://cdn.polyfill.io/v3/polyfill.min.js?features=default-3.6&flags=gated&rum=1\\"></script></head>
   <body>
   <script type=\\"text/javascript\\" src=\\"main.js\\"></script></body>
 </html>"
@@ -44,6 +44,6 @@ exports[`HtmlWebpackPolyfillIOPlugin with useBody adds the polyfill script to th
     <title>Webpack App</title>
   </head>
   <body>
-  <script src=\\"https://cdn.polyfill.io/v2/polyfill.js\\"></script><script type=\\"text/javascript\\" src=\\"main.js\\"></script></body>
+  <script src=\\"https://cdn.polyfill.io/v3/polyfill.js\\"></script><script type=\\"text/javascript\\" src=\\"main.js\\"></script></body>
 </html>"
 `;
