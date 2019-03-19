@@ -3,7 +3,7 @@
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 
-Use the Financial Times' [polyfill.io](https://polyfill.io/v2/docs/) service in your webpack builds with the help of the [`HtmlWebpackPlugin`](https://github.com/jantimon/html-webpack-plugin#html-webpack-plugin).
+Use the Financial Times' [polyfill.io](https://polyfill.io/v3/docs/) service in your webpack builds with the help of the [`HtmlWebpackPlugin`](https://github.com/jantimon/html-webpack-plugin#html-webpack-plugin).
 
 ## Installation
 
@@ -38,7 +38,7 @@ module.exports = {
 
 ## Configuration
 
-The plugin's configuration mirrors that listed at [polyfill.io/v2/docs/api](https://polyfill.io/v2/docs/api) when possible. Documentation here is minimal to avoid duplicating the official documentation.
+The plugin's configuration mirrors that listed at [polyfill.io/v3/docs/api](https://polyfill.io/v3/docs/api) when possible. Documentation here is minimal to avoid duplicating the official documentation.
 
 ### (`minify`: `boolean`)
 

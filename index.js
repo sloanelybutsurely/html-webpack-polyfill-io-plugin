@@ -65,7 +65,7 @@ class HtmlWebpackPolyfillIOPlugin {
   }
 
   buildSrc() {
-    const base = 'https://cdn.polyfill.io/v2/polyfill.'
+    const base = 'https://cdn.polyfill.io/v3/polyfill.'
     const postfix = this.options.minify ? 'min.js' : 'js'
 
     const options = []
